@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab Elektro FT-KMUP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div id="formContent">
+      <h1><strong>Verifikasi Data Peminjam</strong></h1>
+      <label for="kelasDropdown"><strong>Angkatan:</strong></label>
+      <select id="kelasDropdown" onchange="fetchNama(this.value)">
+        <option value="">Pilih Angkatan</option>
+      </select>
+
+      <label for="namaDropdown"><strong>Nama:</strong></label>
+      <select id="namaDropdown">
+        <option value="">Pilih Nama</option>
+      </select>
+
+      <label for="passwordInput"><strong>Kata Sandi:</strong></label>
+      <input type="password" id="passwordInput" placeholder="Masukkan Password">
+
+      <div class="button-group">
+        <button onclick="openCaptchaPopup('Peminjaman')">Peminjaman</button>
+        <button onclick="openCaptchaPopup('Pengembalian')">Pengembalian</button>
+      </div>
+    </div>
+
+    <!-- Konten baru yang akan muncul setelah verifikasi berhasil -->
+    <div id="newContent" style="display: none;">
+      <h1>Selamat Datang!</h1>
+      <p>Konten baru akan ditampilkan di sini.</p>
+    </div>
+  </div>
+
+  <div id="captcha-popup" class="captcha-popup">
+    <div class="captcha-box">
+      <p>Masukkan CAPTCHA berikut:</p>
+      <span id="captchaCode" style="font-weight: bold; font-size: 20px;"></span>
+      <input type="text" id="captchaInput" placeholder="Masukkan CAPTCHA">
+      <button onclick="verifyCaptcha()">Verifikasi</button>
+    </div>
+    <input type="hidden" id="buttonType">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
